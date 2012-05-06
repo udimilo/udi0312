@@ -1,0 +1,32 @@
+{{extend 'layout/base.html'}}
+<div id="search_top" class="top">
+    <div class="inner clearfix">
+        <div id="search_picker" class="pressed">
+            <div class="in">
+                <ul>
+                    <li><a href="/search/articles/?q={{=request.vars.q}}">Articles</a></li>
+                    <li class="selected"><a>People</a></li>
+                    <li><a href="/search/boards/?q={{=request.vars.q}}">Boards</a></li>
+                </ul>
+            </div>
+        </div>
+        <h2 id="search_title">search results for <b>{{=request.vars.q}}</b></h2>
+    </div>
+</div>
+
+<div id="people">
+    {{for u in results:}}
+    <div class="person rounded shadow clearfix">
+        <a href="{{=URL('default', 'people', args=[u['id']])}}"><img src="{{=u['picture_url']}}"/></a>
+        <h2><a href="{{=URL('default', 'people', args=[u['id']])}}">{{=u['full_name']}}</a></h2>
+        <p class="industry">{{=u['industry']}}</p>
+        {{if auth.user:}}
+            <span class="button white"><a class="follow" href="{{=URL('default', 'people', args=[u['id'], 'follow'])}}" base="{{=URL('default', 'people', args=[u['id']])}}" action="follow">{{=u['action']}}</a></span>
+        {{pass}}
+    </div>
+    {{pass}}
+</div>
+
+{{block bottom}}
+<script type="text/javascript" src="/udi0312/static/js/pinfo.search.js?v={{=static_version}}"></script>
+{{end}}

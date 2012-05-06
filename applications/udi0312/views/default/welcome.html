@@ -1,0 +1,34 @@
+{{extend 'layout/base.html'}}
+
+<div id="welcome_wrapper" class="shadow rounded centered clearfix">
+    <h1>Welcome to Pinformation!</h1><br/>
+    <h2>Pinformation is a virtual pinboard to <strong>discover</strong>, <strong>share</strong>, and <strong>discuss</strong> relevant information. We want to help you read what's important for you, so that you can be better at what you do.</h2><br/>
+    <h1>1.</h1>
+    <div class="block">
+        <h2>
+            Start by following our <a href="{{=URL('default', 'people', args=[163034])}}" target="_blank">Pin Bot</a>
+            <span class="button white" style="margin-left:15px;"><a class="follow" href="{{=URL('default', 'people', args=[163034, 'follow'])}}" base="{{=URL('default', 'people', args=[163034])}}" action="follow">Follow</a></span>
+        </h2>
+    </div>
+    <h1>2.</h1>
+    <div class="block">
+        <h2>Continue by creating your first board</h2>
+        <form id="add_board_welcome_form">
+            <div>
+                <input type="text" name="name" class="wtr rounded" wtr="Board name">
+                <select name="category">
+                    {{if 'categories' in globals():}}
+                    {{for c in categories:}}
+                    <option value="{{=c['id']}}">{{=c['name']}}</option>
+                    {{pass}}
+                    {{pass}}
+                </select>
+                <span class="button blue"><a onclick="return ajax_with_msg('{{=URL('api', 'add_board')}}', $('#add_board_welcome_form'));">Add Board</a></span>
+            </div>
+        </form>
+    </div>
+    <h1>3.</h1>
+    <div class="block">
+        <h2>Now you can discover great content by checking out the <strong>Everything</strong> menu on the top of the screen, we are working on new discovery tool and will share it with you once they are ready to go.</h2>
+    </div>
+</div>

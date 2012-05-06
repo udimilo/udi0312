@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.KeyError'> 'board'"
+p3
+sS'layer'
+p4
+S'/Users/udimilo/Documents/web2py/applications/udi0312/controllers/users.py'
+p5
+sS'code'
+p6
+S"def index():        \n    return dict()\n\ndef user():\n    user_id = request.args(0)\n    user = db.auth_user(user_id) or redirect(URL('index'))    \n\n    if request.args(1):\n        action = request.args(1).lower()\n        if action == 'follow':\n            rel = db((db.user_user.follower == auth.user.id) & (db.user_user.followee == user.id)).select().first()        \n            if rel is None:\n                rel = db.user_user.insert(follower = auth.user.id, followee = user.id)\n                return 'new following'\n            return 'following'\n        else:\n            if action == 'unfollow':\n                rel = db((db.user_user.follower == auth.user.id) & (db.user_user.followee == user.id)).select().first()        \n                if rel is not None:\n                    db(db.user_user.id == rel.id).delete()\n                    return 'deleted'\n                else:\n                    return 'did not follow'\n            else:\n                #show board\n                board_id = action\n                board = db.board(board_id) or redirect(URL('users',user_id))\n                articles = db(db.article.board == board.id).select()\n                return len(articles)\n                                \n    \n#    user_boards = db(db.board.id,db.board.user_id == user.id).select()\n#    user_pins = db(db.pin.board_id in user_boards).select()\n    \n    return dict(user=user)\n\nresponse._vars=response._caller(user)\n"
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/users/udimilo/Documents/web2py/gluon/restricted.py", line 205, in restricted\n    exec ccode in environment\n  File "/Users/udimilo/Documents/web2py/applications/udi0312/controllers/users.py", line 37, in <module>\n  File "/users/udimilo/Documents/web2py/gluon/globals.py", line 173, in <lambda>\n    self._caller = lambda f: f()\n  File "/Users/udimilo/Documents/web2py/applications/udi0312/controllers/users.py", line 28, in user\n    articles = db(db.article.board == board.id).select()\n  File "/users/udimilo/Documents/web2py/gluon/dal.py", line 6774, in __getattr__\n    return self[key]\n  File "/users/udimilo/Documents/web2py/gluon/dal.py", line 6714, in __getitem__\n    return dict.__getitem__(self, str(key))\nKeyError: \'board\'\n'
+p11
+s.

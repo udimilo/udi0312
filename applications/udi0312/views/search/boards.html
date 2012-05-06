@@ -1,0 +1,23 @@
+{{extend 'layout/base.html'}}
+<div id="search_top" class="top">
+    <div class="inner clearfix">
+        <div id="search_picker" class="pressed">
+            <div class="in">
+                <ul>
+                    <li><a href="/search/articles/?q={{=request.vars.q}}">Articles</a></li>
+                    <li><a href="/search/people/?q={{=request.vars.q}}">People</a></li>
+                    <li class="selected"><a>Boards</a></li>
+                </ul>
+            </div>
+        </div>
+        <h2 id="search_title">search results for <b>{{=request.vars.q}}</b></h2>
+    </div>
+</div>
+
+<div id="boards">
+    {{for b in results:}}
+    <div>
+        <h1><a href="{{=URL('default', 'boards', args=[b['id']])}}">{{=b['name']}}</a></h1>
+    </div>
+    {{pass}}
+</div>

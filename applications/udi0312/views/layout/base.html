@@ -1,0 +1,191 @@
+{{from helper import *}}
+{{static_version=7}}
+<html lang="en">
+<head>
+    <title>{{=response.title or request.application}}</title>
+    <meta name="msvalidate.01" content="9B2DFC74E41035736CB22665C3728C57" />
+    <meta name="description" content="{{=response.meta.description}}" />
+    <meta name="author" content="{{=response.meta.author}}" />        
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/udi0312/static/js/jquery.easydate-0.2.4.min.js"></script>
+    <script type="text/javascript" src="/udi0312/static/js/jquery.watermark.min.js"></script>
+    <script type="text/javascript" src="/udi0312/static/js/web2py.js"></script>
+    <script type="text/javascript" src="/udi0312/static/js/jquery.masonry.min.js"></script>
+    <script type="text/javascript" src="/udi0312/static/js/jquery.imagesloaded.min.js"></script>
+    <script type="text/javascript" src="/udi0312/static/js/jquery.infinitescroll.min.js"></script>
+    <script type="text/javascript" src="/udi0312/static/js/list.min.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,300' rel='stylesheet' type='text/css'>
+    <link href='/udi0312/static/css/pinformation.css?v={{=static_version}}' rel='stylesheet' type='text/css'>
+
+{{if request.env.http_host == 'www.pinformation.co' or request.env.http_host == 'pinformation.co':}}
+    <!-- start Mixpanel --><script type="text/javascript">(function(d,c){var a,b,g,e;a=d.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===d.location.protocol?"https:":"http:")+'//api.mixpanel.com/site_media/js/api/mixpanel.2.js';b=d.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b);c._i=[];c.init=function(a,d,f){var b=c;"undefined"!==typeof f?b=c[f]=[]:f="mixpanel";g="disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config".split(" ");
+    for(e=0;e<g.length;e++)(function(a){b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,0)))}})(g[e]);c._i.push([a,d,f])};window.mixpanel=c})(document,[]);
+mixpanel.init("bf24ab1dfdd848808bfebb3755192ff0");</script><!-- end Mixpanel -->
+
+    <!-- start google analytics -->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-30950240-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- end google analytics -->
+{{pass}}
+
+</head>
+<body>
+    <div id="header">
+        <div id="search">
+            <input type="text" id="query" class="wtr" wtr="Search">
+        </div>
+        <div id="nav">
+            <ul>
+                <li><span class="button blue"><a {{if auth.user:}}onclick="$('#add_modal').dialog('open');"{{pass}}{{else:}}onclick="$('#signin_modal').dialog('open');"{{pass}}>Add +</a></span></li>
+                <li class="sub">
+                    <a href="{{=URL('default', 'all')}}">everything{{if 'current_category' in globals() and current_category is not None:}}: {{=shrink(current_category['name'], 10)}}{{pass}}</a>
+                    <ul id="categoriesDropdown" class="ddl rounded shadow clearfix">
+                        <li>
+                            <span>
+                            {{if 'categories' in globals():}}
+                                {{for c in categories:}}
+                                    <a href="{{=URL('all')}}/?category={{=c['name']}}">{{=c['name']}}</a>
+                                    {{if categories.index(c) == 10:}}
+                                        </span><span>
+                                    {{pass}}
+                                {{pass}}
+                            {{pass}}
+                            </span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <a id="logo" href="/"><img src="/udi0312/static/images/logo.png"/></a>
+        <div id="login">
+            {{if auth.user:}}
+                <div class="sub">
+                    <a href="{{=URL('default', 'people', args=[auth.user.id])}}">
+                        {{if auth.user.picture_url:}}
+                            <img class="profilePic" src="{{=auth.user.picture_url}}" />
+                        {{else:}}
+                            <img class="profilePic" src="http://static02.linkedin.com/scds/common/u/img/icon/icon_no_photo_60x60.png" />
+                        {{pass}}
+                    </a>
+                    <ul class="ddl rounded shadow clearfix">
+                        <li><a href="{{=URL('user', 'profile')}}">profile</a></li>
+                        <li><a href="{{=URL('user', 'logout')}}">logout</a></li>
+                    </ul>
+                </div>
+            {{else:}}
+                <a href="{{=URL('user','login')}}"><img class="login shadow" src="/udi0312/static/images/linkedin_signin.png" /></a>
+            {{pass}}
+        </div>
+        {{if auth.user:}}
+        <div class="invite">
+            <span class="button green"><a href="{{=URL('invites', 'linkedin')}}">Invite</a></span>
+        </div>
+        {{pass}}
+    </div>
+    <div id="add_modal" class="modal">
+        <div class="inner rounded shadow clearfix">
+            <div class="close"></div>
+            <div id="add_buttons">
+                <div class="pressed">
+                    <div class="in">
+                        <ul>
+                            <li class="selected"><a id="add_article_pick">add an article</a></li>
+                            <li><a id="add_board_pick">create a board</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="add_article_wrapper" class="rounded shadow">
+                <form id="add_article_form">
+                    <div><input type="text" name="url" class="wtr rounded" wtr="Article URL"></div>
+                    <div class="clearfix">
+                        <select name="board">
+                            {{if 'boards' in globals():}}
+                            {{for b in boards:}}
+                            <option value="{{=b['id']}}">{{=b['name']}}</option>
+                            {{pass}}
+                            {{pass}}
+                        </select>
+                        <span class="button blue"><a onclick="return ajax_with_msg('{{=URL('api', 'add_article')}}', $('#add_article_form'));">Add Article</a></span>
+                    </div>
+                </form>
+            </div>
+            <div id="add_board_wrapper" class="rounded shadow" style="display:none;">
+                <form id="add_board_form">
+                    <div><input type="text" name="name" class="wtr rounded" wtr="Board name"></div>
+                    <div class="clearfix">
+                        <select name="category">
+                            {{if 'categories' in globals():}}
+                            {{for c in categories:}}
+                            <option value="{{=c['id']}}">{{=c['name']}}</option>
+                            {{pass}}
+                            {{pass}}
+                        </select>
+                        <span class="button blue"><a onclick="return ajax_with_msg('{{=URL('api', 'add_board')}}', $('#add_board_form'));">Add Board</a></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="pin_modal" class="modal">
+        <div class="inner rounded shadow">
+            <div class="close"></div>
+            <div class="content"></div>
+        </div>
+    </div>
+    {{if auth.user:}}
+    <div id="repin_modal" class="modal">
+        <div class="inner rounded shadow clearfix">
+            <div class="close"></div>
+            <form id="repin_form">
+                <h2>Repin</h2>
+                <h3 class="title"></h3>
+                <div class="share"><input type="checkbox" name="linkedin" checked="true">Share on LinkedIn</div>
+                <div class="clearfix">
+                    <select name="repin_board">
+                        {{if 'boards' in globals():}}
+                        {{for board in boards:}}
+                        <option value="{{=board['id']}}">{{=board['name']}}</option>
+                        {{pass}}
+                        {{pass}}
+                    </select>
+                    <span class="button green"><a onclick="return ajax_with_msg('{{=URL('api', 'add_repin')}}', $('#repin_form'));">Repin</a></span>
+                </div>
+                <input type="hidden" name="id"/>
+            </form>
+        </div>
+    </div>
+    {{pass}}
+    <div id="msg"><span></span></div>
+
+    {{if not auth.user:}}
+    <div id="signin_modal" class="modal">
+        <div class="inner rounded shadow clearfix">
+            <div class="close"></div>
+            <h2>Sign in to start pinning</h2>
+            <br/>
+            <div><a href="{{=URL('user','login')}}"><img class="login shadow" src="/udi0312/static/images/linkedin_signin.png" /></a></div>
+        </div>
+    </div>
+    {{pass}}
+
+{{block center}}
+{{include}}
+{{end}}
+
+    <script type="text/javascript" src="/udi0312/static/js/pinfo.js?v={{=static_version}}"></script>
+{{block bottom}}
+{{end}}
+</body>
+</html>

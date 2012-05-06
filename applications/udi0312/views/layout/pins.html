@@ -1,0 +1,10 @@
+{{extend 'layout/base.html'}}
+{{block top}}
+{{include}}
+{{end}}
+<div id="wrapper" class="clearfix">
+    {{include 'api/pins.html'}}
+</div>
+<nav id="pageNav">
+    <a href="{{=api_url}}/2"></a>
+</nav>

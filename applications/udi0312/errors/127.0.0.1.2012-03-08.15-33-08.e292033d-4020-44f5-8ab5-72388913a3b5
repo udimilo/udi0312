@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.AttributeError'> 'Query' object has no attribute 'type'"
+p3
+sS'layer'
+p4
+S'/Users/udimilo/Documents/web2py/applications/udi0312/controllers/default.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n# this file is released under public domain and you can use without limitations\n\n#########################################################################\n## This is a samples controller\n## - index is the default action of any application\n## - user is required for authentication and authorization\n## - download is for downloading files uploaded in the db (does streaming)\n## - call exposes all registered services (none by default)\n#########################################################################\n\ndef index():\n    pages = db().select(db.page.ALL)\n    categories = db().select(db.category.ALL)\n    boards = db().select(db.board.ALL)        \n    return dict(items=pages, categories=categories, boards=boards)\n    \ndef addPage():\n    ##page = db().page.insert(user_id = auth.user, url = request.vars.url, height = 300)\n    board = db().select(db.board.name == request.vars.board)\n    ##pin = db().pin.insert(board_id = board.id, page_id = pageId)\n    return request.vars.url,\'/\',request.vars.board\n    ##,\' /// \',page,\'-\',board,\'-\',pin\n    \ndef user():\n    """\n    exposes:\n    http://..../[app]/default/user/login\n    http://..../[app]/default/user/logout\n    http://..../[app]/default/user/register\n    http://..../[app]/default/user/profile\n    http://..../[app]/default/user/retrieve_password\n    http://..../[app]/default/user/change_password\n    use @auth.requires_login()\n        @auth.requires_membership(\'group name\')\n        @auth.requires_permission(\'read\',\'table name\',record_id)\n    to decorate functions that need access control\n    """\n    return dict(form=auth())\n\n\ndef download():\n    """\n    allows downloading of uploaded files\n    http://..../[app]/default/download/[filename]\n    """\n    return response.download(request,db)\n\n\ndef call():\n    """\n    exposes services. for example:\n    http://..../[app]/default/call/jsonrpc\n    decorate with @services.jsonrpc the functions to expose\n    supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv\n    """\n    return service()\n\n\n@auth.requires_signature()\ndef data():\n    """\n    http://..../[app]/default/data/tables\n    http://..../[app]/default/data/create/[table]\n    http://..../[app]/default/data/read/[table]/[id]\n    http://..../[app]/default/data/update/[table]/[id]\n    http://..../[app]/default/data/delete/[table]/[id]\n    http://..../[app]/default/data/select/[table]\n    http://..../[app]/default/data/search/[table]\n    but URLs must be signed, i.e. linked with\n      A(\'table\',_href=URL(\'data/tables\',user_signature=True))\n    or with the signed load operator\n      LOAD(\'default\',\'data.load\',args=\'tables\',ajax=True,user_signature=True)\n    """\n    return dict(form=crud())\n\nresponse._vars=response._caller(addPage)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/users/udimilo/Documents/web2py/gluon/restricted.py", line 205, in restricted\n    exec ccode in environment\n  File "/Users/udimilo/Documents/web2py/applications/udi0312/controllers/default.py", line 77, in <module>\n  File "/users/udimilo/Documents/web2py/gluon/globals.py", line 173, in <lambda>\n    self._caller = lambda f: f()\n  File "/Users/udimilo/Documents/web2py/applications/udi0312/controllers/default.py", line 20, in addPage\n    board = db().select(db.board.name == request.vars.board)\n  File "/users/udimilo/Documents/web2py/gluon/dal.py", line 7578, in select\n    return adapter.select(self.query,fields,attributes)\n  File "/users/udimilo/Documents/web2py/gluon/dal.py", line 1320, in select\n    return self.parse(rows,fields,self._colnames)\n  File "/users/udimilo/Documents/web2py/gluon/dal.py", line 1600, in parse\n    self.parse_value(value, fields[j].type,blob_decode)\nAttributeError: \'Query\' object has no attribute \'type\'\n'
+p11
+s.

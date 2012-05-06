@@ -1,0 +1,238 @@
+timestamp: 2012-03-06T15:11:45.982778
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512)
+);
+success!
+timestamp: 2012-03-06T15:11:45.986073
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-03-06T15:11:45.989232
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-03-06T15:11:45.992793
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2012-03-06T15:11:45.997079
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2012-03-06T15:11:46.002131
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2012-03-07T18:51:37.910105
+CREATE TABLE page(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    userId INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    url CHAR(512),
+    title CHAR(512),
+    blobl CHAR(512),
+    iconURL CHAR(512),
+    source CHAR(512),
+    timestamp CHAR(512)
+);
+success!
+timestamp: 2012-03-07T18:53:18.781236
+ALTER TABLE page ADD user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE;
+timestamp: 2012-03-07T18:53:18.786032
+ALTER TABLE page ADD blob CHAR(512);
+timestamp: 2012-03-07T19:02:49.895338
+ALTER TABLE page ADD height CHAR(512);
+timestamp: 2012-03-07T19:04:46.311267
+ALTER TABLE page ADD imgurl CHAR(512);
+timestamp: 2012-03-07T19:45:08.211661
+CREATE TABLE category(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512)
+);
+success!
+timestamp: 2012-03-07T19:45:08.219802
+CREATE TABLE board(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    name CHAR(512),
+    category_id INTEGER REFERENCES category(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-03-08T10:41:07.444885
+CREATE TABLE pin(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    board_id INTEGER REFERENCES board(id) ON DELETE CASCADE,
+    page_id INTEGER REFERENCES page(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2012-03-08T15:24:29.143820
+ALTER TABLE category ADD created_on TIMESTAMP;
+timestamp: 2012-03-08T15:24:29.159210
+ALTER TABLE board ADD created_on TIMESTAMP;
+timestamp: 2012-03-08T15:24:29.210964
+ALTER TABLE page ADD created_on TIMESTAMP;
+timestamp: 2012-03-08T15:24:29.219239
+ALTER TABLE pin ADD created_on TIMESTAMP;
+timestamp: 2012-03-11T16:53:25.404039
+ALTER TABLE page ADD domain CHAR(512);
+timestamp: 2012-03-11T16:53:25.406990
+ALTER TABLE page ADD author CHAR(512);
+timestamp: 2012-03-11T16:53:25.408744
+ALTER TABLE page ADD total_pages CHAR(512);
+timestamp: 2012-03-11T16:53:25.410701
+ALTER TABLE page ADD excerpt CHAR(512);
+timestamp: 2012-03-11T16:53:25.412425
+ALTER TABLE page ADD word_count CHAR(512);
+timestamp: 2012-03-11T16:53:25.414691
+ALTER TABLE page ADD content TEXT;
+timestamp: 2012-03-11T16:53:25.416385
+ALTER TABLE page ADD date_published CHAR(512);
+timestamp: 2012-03-11T16:53:25.418321
+ALTER TABLE page ADD next_page_id CHAR(512);
+timestamp: 2012-03-11T16:53:25.419691
+ALTER TABLE page ADD rendered_pages CHAR(512);
+timestamp: 2012-03-11T16:53:25.421226
+ALTER TABLE page ADD readability_url CHAR(512);
+timestamp: 2012-03-11T16:55:12.072141
+ALTER TABLE page ADD domain_icon_url CHAR(512);
+timestamp: 2012-03-12T02:54:55.872242
+CREATE TABLE article(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    url CHAR(512),
+    readability_url CHAR(512),
+    title CHAR(512),
+    content TEXT,
+    domain CHAR(512),
+    domain_icon_url CHAR(512),
+    author CHAR(512),
+    excerpt CHAR(512),
+    word_count CHAR(512),
+    total_pages CHAR(512),
+    date_published CHAR(512),
+    next_page_id CHAR(512),
+    rendered_pages CHAR(512),
+    height CHAR(512),
+    created_on TIMESTAMP
+);
+success!
+timestamp: 2012-03-12T02:54:55.928948
+ALTER TABLE pin ADD article_id INTEGER REFERENCES article(id) ON DELETE CASCADE;
+timestamp: 2012-03-12T03:22:47.707682
+CREATE TABLE user_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    follower_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    followee_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP
+);
+success!
+timestamp: 2012-03-12T03:22:47.711877
+CREATE TABLE user_board(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    follower_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    board_id INTEGER REFERENCES board(id) ON DELETE CASCADE,
+    created_on TIMESTAMP
+);
+success!
+timestamp: 2012-03-12T03:24:29.530127
+CREATE TABLE star(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    article_id INTEGER REFERENCES article(id) ON DELETE CASCADE,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP
+);
+success!
+timestamp: 2012-03-15T19:51:34.771572
+CREATE TABLE rss_feeds(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    url CHAR(512),
+    created_on TIMESTAMP
+);
+success!
+timestamp: 2012-03-17T11:54:29.996155
+ALTER TABLE user_user ADD follower INTEGER REFERENCES auth_user(id) ON DELETE CASCADE;
+timestamp: 2012-03-17T11:54:30.010275
+ALTER TABLE user_user ADD followee INTEGER REFERENCES auth_user(id) ON DELETE CASCADE;
+timestamp: 2012-03-17T11:54:30.016351
+ALTER TABLE user_board ADD follower INTEGER REFERENCES auth_user(id) ON DELETE CASCADE;
+timestamp: 2012-03-17T11:54:30.029140
+ALTER TABLE user_board ADD board INTEGER REFERENCES board(id) ON DELETE CASCADE;
+timestamp: 2012-03-17T11:57:38.186214
+ALTER TABLE board ADD category INTEGER REFERENCES category(id) ON DELETE CASCADE;
+timestamp: 2012-03-17T11:57:38.190732
+ALTER TABLE board ADD user INTEGER REFERENCES auth_user(id) ON DELETE CASCADE;
+timestamp: 2012-03-17T11:57:38.206898
+ALTER TABLE pin ADD board INTEGER REFERENCES board(id) ON DELETE CASCADE;
+timestamp: 2012-03-17T11:57:38.208506
+ALTER TABLE pin ADD article INTEGER REFERENCES article(id) ON DELETE CASCADE;
+timestamp: 2012-03-17T11:57:38.213012
+ALTER TABLE star ADD article INTEGER REFERENCES article(id) ON DELETE CASCADE;
+timestamp: 2012-03-17T11:57:38.215343
+ALTER TABLE star ADD user INTEGER REFERENCES auth_user(id) ON DELETE CASCADE;
+timestamp: 2012-03-19T20:22:20.740128
+ALTER TABLE pin ADD original_pin INTEGER REFERENCES pin(id) ON DELETE CASCADE;
+timestamp: 2012-03-22T02:31:05.886512
+ALTER TABLE pin ADD article_title CHAR(512);
+timestamp: 2012-03-22T02:31:05.917064
+ALTER TABLE pin ADD board_name CHAR(512);
+timestamp: 2012-03-22T02:31:05.918823
+ALTER TABLE pin ADD user INTEGER REFERENCES auth_user(id) ON DELETE CASCADE;
+timestamp: 2012-03-22T02:31:05.920139
+ALTER TABLE pin ADD article_content CHAR(512);
+timestamp: 2012-03-22T02:31:05.922098
+ALTER TABLE pin ADD user_name CHAR(512);
+timestamp: 2012-03-22T02:31:05.924135
+ALTER TABLE pin ADD article_domain CHAR(512);
+timestamp: 2012-03-23T14:09:30.084336
+ALTER TABLE rss_feeds ADD board INTEGER REFERENCES board(id) ON DELETE CASCADE;
+timestamp: 2012-03-23T14:13:08.861503
+CREATE TABLE rss_feed(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    url CHAR(512),
+    board INTEGER REFERENCES board(id) ON DELETE CASCADE,
+    created_on TIMESTAMP
+);
+success!
+timestamp: 2012-03-26T11:52:47.189377
+ALTER TABLE article ADD media_thumbnail CHAR(512);
+timestamp: 2012-03-26T11:52:47.248530
+ALTER TABLE pin ADD article_media_thumbnail CHAR(512);
+timestamp: 2012-03-26T11:52:47.263962
+ALTER TABLE pin ADD article_excerpt TEXT;
+timestamp: 2012-03-27T10:43:09.218014
+CREATE TABLE comment(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    pin INTEGER REFERENCES pin(id) ON DELETE CASCADE,
+    content CHAR(512),
+    created_on TIMESTAMP
+);
+success!

@@ -1,0 +1,55 @@
+<html lan="en">
+<head>
+    <title>inFormation - Curate The Web</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/udi0312/static/js/jquery.wookmark.js"></script>
+    <script type="text/javascript" src="http://easydate.parshap.com/files/jquery.easydate-0.2.4.min.js"></script>
+    <script type="text/javascript" src="/udi0312/static/js/web2py.js"></script>
+    <script type="text/javascript" src="http://jacklmoore.com/colorbox/colorbox/jquery.colorbox.js"></script>   
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link href='/udi0312/static/css/site.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div id="header">
+        <div id="search">
+            <input type="text" id="query" size="27" value="Search">
+            <a id="query_button" href="#" class="lg"><img src="http://passets-cdn.pinterest.com/images/search.gif" alt=""></a>
+        </div>
+        <img id="ajax_loader" src="/udi0312/static/images/ajax_loader.gif" />
+        <a id="logo" href="/">
+            <img src="http://press.linkedin.com/sites/all/themes/presslinkedin/images/LinkedIn_IN_Icon_25px.png"/>
+            <span>formation</span>
+        </a>
+        <ul id="navigation">
+            <li>{{='auth' in globals() and auth.navbar(separators=(' ',' | ',''))}}</li>
+        </ul>
+    </div>
+    <div id="msg">
+        <span></span>
+    </div>
+    <!-- hidden colorbox elements -->
+    <div style="display:none;">
+        {{if auth.user:}}
+        <div id="repin">
+            <form onsubmit="ajax_with_msg('{{=URL('add_repin')}}', ['id','repin_board']);return false;">
+                <h1>Repin</h1>
+                <div class="pin">
+                    <h2 class="title"></h2> 
+                    <select name="repin_board">
+                    {{for board in boards:}}
+                        <option value="{{=board.id}}">{{=board.name}}</option>
+                    {{pass}}
+                    </select>
+                    <input type="hidden" name="id"/>
+                    <input type="submit" />
+                </div>
+            </form>
+        </div>
+        {{pass}}
+    </div>
+{{block center}}
+{{include}}
+{{end}}
+    <script type="text/javascript" src="/udi0312/static/js/site.js"></script>
+</body>
+</html>

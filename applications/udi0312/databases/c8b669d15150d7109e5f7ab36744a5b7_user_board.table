@@ -1,0 +1,74 @@
+(dp1
+S'board_id'
+p2
+(dp3
+S'type'
+p4
+S'reference board'
+p5
+sS'sortable'
+p6
+I3
+sS'sql'
+p7
+S'INTEGER REFERENCES board(id) ON DELETE CASCADE'
+p8
+ssS'follower_id'
+p9
+(dp10
+g4
+S'reference auth_user'
+p11
+sg6
+I2
+sg7
+S'INTEGER REFERENCES auth_user(id) ON DELETE CASCADE'
+p12
+ssS'follower'
+p13
+(dp14
+S'type'
+p15
+S'reference auth_user'
+p16
+sS'sortable'
+p17
+I2
+sS'sql'
+p18
+S'INTEGER REFERENCES auth_user(id) ON DELETE CASCADE'
+p19
+ssS'board'
+p20
+(dp21
+g15
+S'reference board'
+p22
+sg17
+I3
+sg18
+S'INTEGER REFERENCES board(id) ON DELETE CASCADE'
+p23
+ssS'created_on'
+p24
+(dp25
+g15
+S'datetime'
+p26
+sg17
+I4
+sg18
+S'TIMESTAMP'
+p27
+ssS'id'
+p28
+(dp29
+g15
+S'id'
+p30
+sg17
+I1
+sg18
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p31
+ss.

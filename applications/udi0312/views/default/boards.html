@@ -1,0 +1,6 @@
+{{extend 'layout/pins.html'}}
+<div class="top">
+    <div class="inner rounded shadow clearfix">
+        <nav><a href="{{=URL('people', args=[current_board['user']])}}">{{=current_board['user_name']}}</a> // {{=current_board['name']}}</nav> {{if action:}} <div class="action"><span class="button white small"><a class="follow" href="{{=URL('boards', args=[current_board['id'], action])}}" base="{{=URL('boards', args=[current_board['id']])}}" action="{{=action}}">{{=action}}</a></span></div>{{pass}}
+    </div>
+</div>

@@ -1,0 +1,74 @@
+(dp1
+S'follower_id'
+p2
+(dp3
+S'type'
+p4
+S'reference auth_user'
+p5
+sS'sortable'
+p6
+I2
+sS'sql'
+p7
+S'INTEGER REFERENCES auth_user(id) ON DELETE CASCADE'
+p8
+ssS'follower'
+p9
+(dp10
+S'type'
+p11
+S'reference auth_user'
+p12
+sS'sortable'
+p13
+I2
+sS'sql'
+p14
+S'INTEGER REFERENCES auth_user(id) ON DELETE CASCADE'
+p15
+ssS'followee'
+p16
+(dp17
+g11
+S'reference auth_user'
+p18
+sg13
+I3
+sg14
+S'INTEGER REFERENCES auth_user(id) ON DELETE CASCADE'
+p19
+ssS'followee_id'
+p20
+(dp21
+g4
+S'reference auth_user'
+p22
+sg6
+I3
+sg7
+S'INTEGER REFERENCES auth_user(id) ON DELETE CASCADE'
+p23
+ssS'created_on'
+p24
+(dp25
+g11
+S'datetime'
+p26
+sg13
+I4
+sg14
+S'TIMESTAMP'
+p27
+ssS'id'
+p28
+(dp29
+g11
+S'id'
+p30
+sg13
+I1
+sg14
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p31
+ss.

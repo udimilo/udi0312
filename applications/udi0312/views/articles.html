@@ -1,0 +1,38 @@
+{{extend 'master.html'}}
+{{block top}}
+{{include}}
+{{end}}
+<div id="wrapper">
+    <ul id="example">
+        {{for pin in pins:}}
+            <li style="height:350px">
+                <div class="itemWrapper">
+                    <div class="actions">
+                        <a href="#" class="whiteButton repinButton" id="{{=pin.id}}" title="{{=pin.article.title}}"><em></em><strong>Repin</strong></a>
+                        <a href="#" class="whiteButton likeButton"><em></em><strong>Like</strong></a>
+                        <a href="#" class="whiteButton commentButton"><em></em><strong>Comment</strong></a>
+                    </div>
+                    <div class="content">
+                        {{if show_pinner:}}
+                        <div class="pinner">
+                            <a href="{{=URL(c='users', f='user', args=[pin.board.user.id])}}">{{=pin.board.user.first_name}} {{=pin.board.user.last_name}}</a>
+                            pinned onto <a href="{{=URL(c='boards', f='board', args=[pin.board.id])}}">{{=pin.board.name}}</a>
+                        </div>
+                        {{pass}}
+                        <h1>{{=pin.article.title}}</h1>
+                        <h2 class="subTitle">
+                            <a href="#">
+                                <img src="http://www.google.com/s2/u/0/favicons?domain={{=pin.article.domain}}"/>
+                                <span>{{=pin.article.domain}}<span>
+                            </a>
+                            <label class="time easydate">{{=pin.article.created_on}}</label>
+                        </h2>
+                        <article class="blob">
+                            {{=XML(pin.article.content, sanitize=True)}}
+                        </article>
+                    </div>
+                </div>
+            </li>                        
+        {{pass}}
+    </ul>
+</div>

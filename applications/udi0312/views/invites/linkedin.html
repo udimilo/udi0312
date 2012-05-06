@@ -1,0 +1,56 @@
+{{extend 'layout/base.html'}}
+
+<div id="inviteWrapper" class="centered clearfix">
+    <div id="invite_buttons" class="pressed">
+        <div class="in">
+            <ul>
+                <li><a href="{{=URL('invites', 'index')}}">email</a></li>
+                <li class="selected"><a href="">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <h1>LinkedIn</h1>
+    <div id="linkedin_list" class="people">
+        <h2>invite friends</h2>
+        <input type="text" id="invite_search" class="wtr search" wtr="Type a Friend's Name" />
+        <ul class="list">
+            {{for c in out_users:}}
+            <li>
+                <img class="profilePic" src="{{=c.picture_url}}" />
+                <span class="name">{{=c.first_name}} {{=c.last_name}}</span>
+                <a class="invite_linkedin" username="{{=c.id}}" full_name="{{=c.first_name}} {{=c.last_name}}">invite</a>
+            </li>
+            {{pass}}
+        </ul>
+    </div>
+    <div class="people">
+        <h2>Friends on Pinformation</h2>
+        <ul class="list">
+            {{for c in in_users:}}
+            <li>
+                <img class="profilePic" src="{{=c.picture_url}}" />
+                <span><a href="{{=URL('default', 'people', args=[c.user_id])}}">{{=c.first_name}} {{=c.last_name}}</a></span>
+                <a class="follow" href="{{=URL('default', 'people', args=[c.user_id, 'follow'])}}" base="{{=URL('default', 'people', args=[c.user_id])}}" action="follow">{{=c.action}}</a>
+            </li>
+            {{pass}}
+        </ul>
+    </div>
+</div>
+<div id="invite_linkedin_modal" class="modal">
+    <div class="inner rounded shadow clearfix">
+        <div class="close"></div>
+        <form id="invite_linkedin_form">
+            <table>
+                <tr><td>To:</td><td id="to_name">Udi Milo</td></tr>
+                <tr><td>Message:</td><td><textarea name="message" class="shadow rounded"></textarea></td></tr>
+                <tr><td><span class="button green"><a id="send_linkedin_button">Send</a></span></td></tr>
+            </table>
+            <input type="hidden" name="username">
+        </form>
+    </div>
+</div>
+
+
+{{block bottom}}
+<script type="text/javascript" src="/udi0312/static/js/pinfo.invites.js?v={{=static_version}}"></script>
+{{end}}

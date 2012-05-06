@@ -1,0 +1,59 @@
+(dp1
+S'content'
+p2
+(dp3
+S'type'
+p4
+S'string'
+p5
+sS'sortable'
+p6
+I4
+sS'sql'
+p7
+S'CHAR(512)'
+p8
+ssS'created_on'
+p9
+(dp10
+g4
+S'datetime'
+p11
+sg6
+I5
+sg7
+S'TIMESTAMP'
+p12
+ssS'id'
+p13
+(dp14
+g4
+g13
+sg6
+I1
+sg7
+S'INTEGER PRIMARY KEY AUTOINCREMENT'
+p15
+ssS'pin'
+p16
+(dp17
+g4
+S'reference pin'
+p18
+sg6
+I3
+sg7
+S'INTEGER REFERENCES pin(id) ON DELETE CASCADE'
+p19
+ssS'user'
+p20
+(dp21
+g4
+S'reference auth_user'
+p22
+sg6
+I2
+sg7
+S'INTEGER REFERENCES auth_user(id) ON DELETE CASCADE'
+p23
+ss.

@@ -1,0 +1,56 @@
+{{from helper import *}}
+<div class="left_col">
+    <div class="col">
+        <div id="pinWrapper" class="rounded shadow clearfix">
+            <div class="domain">
+                <img src="http://www.google.com/s2/u/0/favicons?domain={{=article['domain']}}"/>
+                Pinned <span class="easydate">{{=article['created_on']}}</span> from <a href="http://{{=article['domain']}}" target="_blank">{{=article['domain']}}</a>
+            </div>
+            <h2><a href="{{=article['url']}}" target="_blank">{{=myXML(article['title'])}}</a></h2>
+            <article>{{=myXML(article['content'])}}</article>
+        </div>
+    </div>
+</div>
+<div class="right_col">
+    <div class="col">
+        {{if len(comments)>0 or auth.user:}}
+        <div id="commentsWrapper" class="rounded shadow">
+            <h2>Comments</h2>
+            {{for comment in comments:}}
+            <div class="comment clearfix">
+                <div class="pic">
+                    <a href="{{=URL('people',args=[comment['user']])}}">
+                        <img src="{{=comment['user_picture_url']}}" />
+                    </a>
+                </div>
+                <div class="text">
+                    <h3><a href="{{=URL('people',args=[comment['user']])}}">{{=comment['user_name']}}</a> <span class="time">(<span class="easydate">{{=comment['created_on']}}</span>)</span></h3>
+                    <span>{{=XML(comment['content'], sanitize=True)}}</span>
+                </div>
+            </div>
+            {{pass}}
+            {{if auth.user:}}
+            <div class="addComment clearfix">
+                <div class="pic">
+                    <img src="{{=user['picture_url']}}" />
+                </div>
+                <div class="text">
+                    <form id="add_comment_form">
+                        <textarea name="comment" tabindex="1" class="wtr" wtr="Write a comment..."></textarea>
+                        <input type="hidden" name="pin_id" value="{{=pin['id']}}">
+                        <span class="button small white"><a id="add_comment_button" onclick="return ajax_with_msg('{{=URL('api', 'add_comment')}}', $('#add_comment_form'));">Add</a></span>
+                    </form>
+                </div>
+            </div>
+            {{pass}}
+        </div>
+        {{pass}}
+
+        {{if not auth.user:}}
+        <div id="guestWrapper" class="rounded shadow">
+            <h2>To comment, please click to login</h2><br/>
+            <a href="{{=URL('user','login')}}"><img src="/udi0312/static/images/linkedin_signin.png" /></a>
+        </div>
+        {{pass}}
+    </div>
+</div>

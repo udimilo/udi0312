@@ -1,0 +1,28 @@
+{{from helper import *}}
+{{for pin in pins:}}
+<div class="pin rounded shadow">
+    <div class="content" pin_id="{{=pin['id']}}">
+        <div class="domain">
+            <img src="http://www.google.com/s2/u/0/favicons?domain={{=pin['article_domain']}}"/>
+            <span>{{=pin['article_domain']}}</span>
+        </div>
+        <h2>{{=myXML(pin['article_title'])}}</h2>
+        <article>{{=myXML(pin['article_excerpt'])}}</article>
+    </div>
+    <div class="footer">
+        {{if auth.user:}}
+            <div class="actions"><span class="button blue small"><a pin_id="{{=pin['id']}}" class="repin" title="{{=pin['article_title']}}">Repin</a></span></div>
+        {{pass}}
+        <div class="pinner">
+            Posted <span class="time easydate">{{=pin['created_on']}}</span> by
+            <a href="{{=URL('default', 'people', args=[pin['user']])}}">{{=pin['user_name']}}</a>
+            {{if pin['original_pin']:}}
+            {{import cacher}}
+            {{original_pin = cacher.get('pin', pin['original_pin'])}}
+            via <a href="{{=URL('default', 'people', args=[original_pin['user']])}}">{{=original_pin['user_name']}}</a>
+            {{pass}}
+            onto <a href="{{=URL('default', 'boards', args=[pin['board']])}}">{{=pin['board_name']}}</a>
+        </div>
+    </div>
+</div>
+{{pass}}

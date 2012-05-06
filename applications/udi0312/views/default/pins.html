@@ -1,0 +1,14 @@
+{{extend 'layout/base.html'}}
+{{block top}}
+{{include}}
+{{end}}
+
+<div class="top">
+    <div class="inner rounded shadow clearfix">
+        <nav><a href="{{=URL('people', args=[board['user']])}}">{{=board['user_name']}}</a> // <a href="{{=URL('default', 'boards', args=[board['id']])}}">{{=board['name']}}</a></nav>
+    </div>
+</div>
+
+<div id="pin_holder" class="clearfix">
+    {{include 'api/pin.html'}}
+</div>

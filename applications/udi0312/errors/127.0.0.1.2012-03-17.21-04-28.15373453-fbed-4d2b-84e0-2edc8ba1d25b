@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.TypeError'> int() argument must be a string or a number, not 'Storage'"
+p3
+sS'layer'
+p4
+S'/Users/udimilo/Documents/web2py/applications/udi0312/controllers/users.py'
+p5
+sS'code'
+p6
+S"def index():        \n    return dict()\n\ndef user():\n    user_id = request.args(0)\n    user = db.auth_user(user_id) or redirect(URL('index'))    \n\n    if request.args(1):\n        action = request.args(1).lower()\n        if action == 'follow':\n            rel = db((db.user_user.follower == auth.user) & (db.user_user.followee == user)).select().first()        \n            if rel is None:\n                rel = db.user_user.insert(follower = auth.user, followee = user)\n                return 'new following'\n            return 'following'\n        \n        if action == 'unfollow':\n            rel = db((db.user_user.follower == auth.user) & (db.user_user.followee == user)).select().first()        \n            if rel is not None:\n                db(db.user_user.id == rel.id).delete()\n                return 'deleted'\n            else:\n                return 'did not follow'\n                            \n    \n#    user_boards = db(db.board.id,db.board.user_id == user.id).select()\n#    user_pins = db(db.pin.board_id in user_boards).select()\n    \n    return dict(user=user)\n\nresponse._vars=response._caller(user)\n"
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/users/udimilo/Documents/web2py/gluon/restricted.py", line 205, in restricted\n    exec ccode in environment\n  File "/Users/udimilo/Documents/web2py/applications/udi0312/controllers/users.py", line 31, in <module>\n  File "/users/udimilo/Documents/web2py/gluon/globals.py", line 173, in <lambda>\n    self._caller = lambda f: f()\n  File "/Users/udimilo/Documents/web2py/applications/udi0312/controllers/users.py", line 11, in user\n    rel = db((db.user_user.follower == auth.user) & (db.user_user.followee == user)).select().first()\n  File "/users/udimilo/Documents/web2py/gluon/dal.py", line 7578, in select\n    return adapter.select(self.query,fields,attributes)\n  File "/users/udimilo/Documents/web2py/gluon/dal.py", line 1307, in select\n    sql = self._select(query, fields, attributes)\n  File "/users/udimilo/Documents/web2py/gluon/dal.py", line 1756, in _select\n    sql = super(SQLiteAdapter, self)._select(query, fields, attributes)\n  File "/users/udimilo/Documents/web2py/gluon/dal.py", line 1200, in _select\n    sql_w = \' WHERE \' + self.expand(query)\n  File "/users/udimilo/Documents/web2py/gluon/dal.py", line 1046, in expand\n    return expression.op(expression.first, expression.second)\n  File "/users/udimilo/Documents/web2py/gluon/dal.py", line 946, in AND\n    return \'(%s AND %s)\' % (self.expand(first), self.expand(second))\n  File "/users/udimilo/Documents/web2py/gluon/dal.py", line 1046, in expand\n    return expression.op(expression.first, expression.second)\n  File "/users/udimilo/Documents/web2py/gluon/dal.py", line 987, in EQ\n    return \'(%s = %s)\' % (self.expand(first), self.expand(second, first.type))\n  File "/users/udimilo/Documents/web2py/gluon/dal.py", line 1054, in expand\n    return str(self.represent(expression,field_type))\n  File "/users/udimilo/Documents/web2py/gluon/dal.py", line 1433, in represent\n    return str(int(obj))\nTypeError: int() argument must be a string or a number, not \'Storage\'\n'
+p11
+s.

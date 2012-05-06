@@ -1,0 +1,24 @@
+{{extend 'layout/pins.html'}}
+
+{{block top}}
+<div id="search_top" class="top">
+    <div class="inner clearfix">
+        <div id="search_picker" class="pressed">
+            <div class="in">
+                <ul>
+                    <li class="selected"><a>Articles</a></li>
+                    <li><a href="/search/people/?q={{=request.vars.q}}">People</a></li>
+                    <li><a href="/search/boards/?q={{=request.vars.q}}">Boards</a></li>
+                </ul>
+            </div>
+        </div>
+        <h2 id="search_title">search results for <b>{{=request.vars.q}}</b></h2>
+    </div>
+</div>
+{{end}}
+
+<div>
+    {{for p in pins:}}
+        <h1>{{=p['article_title']}}</h1>
+    {{pass}}
+</div>
