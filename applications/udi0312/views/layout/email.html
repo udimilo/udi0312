@@ -1,58 +1,63 @@
-<table width="100%" border="0" cellpadding="0" cellspacing="10" bgcolor="#F4F4F4">
-    <tr>
-        <td align="center">
-            <table width="590" border="0" cellspacing="16" cellpadding="0" bgcolor="#FFFFFF" style="border: solid 1px #ccc; border-radius:5px; text-align:left;color:#333;font-family:arial;font-size:12px;">
-                <tr>
-                    <td>
-                        <p style="font-size:18px;margin:0;padding:0;">@to_user, Welcome!</p>
-                        <p style="margin:0;padding:0;">@from_user wants to invite you to Pinformation</p>
-                    </td>
-                    <td align="right" valign="top" width="159">
-                        <a href="http://www.pinformation.co" style="display:block;width:100%;">
-                            <img src="http://udi0312.appspot.com/udi0312/static/images/logo.png" alt="pinformation" width="159" height="42" border="0" />
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                   <td colspan="2">
-                       <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                           <tr>
-                               <td>
-                                   <p style="margin:0;padding:0"><a href="http://www.pinformation.co/people/@from_user_id" style="text-decoration:none; font-size:13px; font-weight:bold;">@from_user</a></p>
-                                   <p style="margin:0;padding:0;font-size:12px;">@from_user_industry</p>
-                                   <p>
-                                       <a href="http://www.pinformation.co/people/@from_user_id" style="background-color:#fff;text-shadow:#CACACA 0 1px 1px;border:1px solid #676767;color:#555;padding:5px 30px;text-align:center;text-decoration:none;border-radius:3px;box-shadow:0 1px 2px rgba(0,0,0,0.1),1px 0 2px rgba(0,0,0,0.1),0 1px 0 rgba(255,255,255,0.3) inset;-moz-box-shadow:0 1px 2px rgba(0,0,0,0.1),1px 0 2px rgba(0,0,0,0.1),0 1px 0 rgba(255,255,255,0.3) inset;-webkit-box-shadow:0 1px 2px rgba(0,0,0,0.1),1px 0 2px rgba(0,0,0,0.1),0 1px 0 rgba(255,255,255,0.3) inset;background-image:linear-gradient(top, transparent, rgba(0, 0, 0, 0.2));background-image:-o-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2));background-image:-moz-linear-gradient(top, transparent, rgba(0, 0, 0, 0.2));background-image:-webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(rgba(0, 0, 0, 0.2)));">
-                                           View @from_user's Profile
-                                       </a>
-                                   </p>
-                               </td>
-                           </tr>
-                       </table>
-                   </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            <table width="590" border="0" cellspacing="16" cellpadding="0" bgcolor="#FFFFFF" style="border: solid 1px #ccc; border-radius:5px; text-align:left;color:#333;font-family:arial;font-size:12px;">
-                <tr>
-                    <td>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-    <tr>
-        <td align="center">
-            <table width="590" border="0" cellspacing="0" cellpadding="0" bgcolor="#F4F4F4" style="text-align:left;">
-                <tr>
-                    <td style="font-family:Arial;font-size:12px">
-                        © 2012, Pinformation.co
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-</table>
+{{from helper import *}}
+<html>
+    <table width="100%" border="0" cellpadding="0" cellspacing="10" bgcolor="#F4F4F4">
+        <tr>
+            <td align="center">
+                <table width="590" border="0" cellspacing="16" cellpadding="0" bgcolor="#FFFFFF" style="border: solid 1px #ccc; border-radius:5px; text-align:left;color:#333;font-family:arial;font-size:12px;">
+                    <tr>
+                        <td>
+                            <p style="font-size:18px;margin:0;padding:0;">Welcome to <a style="text-decoration:none;" href="http://www.pinformation.co">Pinformation</a>!</p>
+                            <p style="margin:0;padding:0;color:#333;">{{=from_user['full_name']}} wants to invite you to Pinformation</p>
+                        </td>
+                        <td align="right" valign="top" width="159">
+                            <a href="http://www.pinformation.co" style="display:block;width:100%;">
+                                <img src="http://udi0312.appspot.com/udi0312/static/images/logo.png" alt="pinformation" width="159" height="42" border="0" />
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <p style="margin:0;padding:0"><a href="http://www.pinformation.co/people/{{=from_user['id']}}" style="text-decoration:none; font-size:13px; font-weight:bold;">{{=from_user['full_name']}}</a></p>
+                                        <p style="margin:0;padding:0;font-size:12px;">{{=from_user['industry']}}</p>
+                                        <p>
+                                            <a href="http://www.pinformation.co/people/{{=from_user['id']}}" style="background-color:#93B737;text-shadow:#527521 0 1px 2px;border:1px solid #676767;color:#ECEFEF;font-size:16px;padding:5px 30px;text-align:center;text-decoration:none;border-radius:3px;">
+                                                View {{=from_user['first_name']}}'s Profile
+                                            </a>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        {{if 'personal_msg' in globals() and len(personal_msg) > 0:}}
+        <tr>
+            <td align="center">
+                <table width="590" border="0" cellspacing="16" cellpadding="0" bgcolor="#FFFFFF" style="border: solid 1px #ccc; border-radius:5px; text-align:left;color:#333;font-family:arial;font-size:12px;">
+                    <tr>
+                        <td>
+                            {{=myXML(personal_msg)}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        {{pass}}
+        <tr>
+            <td align="center">
+                <table width="590" border="0" cellspacing="0" cellpadding="0" bgcolor="#F4F4F4" style="text-align:left;">
+                    <tr>
+                        <td style="font-family:Arial;font-size:12px">
+                            © 2012, Pinformation.co
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</html>

@@ -68,9 +68,9 @@ auth.settings.extra_fields['auth_user']= [
 auth.define_tables()
 
 ## configure email
-#mail=auth.settings.mailer
-#mail.settings.server = 'gae'
-#mail.settings.sender = 'udimilo@gmail.com'
+mail=auth.settings.mailer
+mail.settings.server = 'gae'
+mail.settings.sender = 'udimilo@gmail.com'
 
 
 ## configure auth policy

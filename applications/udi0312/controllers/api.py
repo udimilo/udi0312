@@ -157,14 +157,32 @@ def flush():
     return cacher.delete(id)
 
 def send_emails():
-    email1 = request.vars.email1
-    email2 = request.vars.email2
-    email3 = request.vars.email3
-    email4 = request.vars.email4
-    email5 = request.vars.email5
-    msg = request.vars.message
+    emails = []
 
-    return email1
+    if len(request.vars.email1) > 5 and IS_EMAIL()(request.vars.email1)[1] is None:
+        emails.append(request.vars.email1)
+
+    if len(request.vars.email2) > 5 and IS_EMAIL()(request.vars.email2)[1] is None:
+        emails.append(request.vars.email2)
+
+    if len(request.vars.email3) > 5 and IS_EMAIL()(request.vars.email3)[1] is None:
+        emails.append(request.vars.email3)
+
+    if len(request.vars.email4) > 5 and IS_EMAIL()(request.vars.email4)[1] is None:
+        emails.append(request.vars.email4)
+
+    if len(request.vars.email5) > 5 and IS_EMAIL()(request.vars.email5)[1] is None:
+        emails.append(request.vars.email5)
+
+    if len(emails) == 0:
+        return 'No invitations sent, please check your email addresses'
+    else:
+        msg = request.vars.message
+        current_user = cacher.get('auth_user', auth.user.id)
+        message=response.render('layout/email.html',from_user=current_user, personal_msg=msg)
+        auth.settings.mailer.send(to=emails,subject='I would like to invite you to Pinformation!',message=message)
+
+        return 'Invitation successfully sent to %d recipients' % len(emails)
 
 def send_linkedin_invites():
     subject = 'I would like to invite you to www.pinformation.co'
