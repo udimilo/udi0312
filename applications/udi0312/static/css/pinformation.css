@@ -181,13 +181,13 @@ a img, a span{
     width:380px;
     top:25px;
     left:-5px;
-    font-size:14px;
     text-transform:capitalize;
 }
 #header .ddl a{
     display:block;
+    font-size:12px;
     position: relative;
-    padding:12px 5px;
+    padding:8px 5px;
     text-align:left;
     color:#222;
     border-left:3px solid transparent;
