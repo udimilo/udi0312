@@ -488,7 +488,7 @@ a img, a span{
     font-size:20px;
 }
 #pinWrapper img{
-    max-width:30%;
+    max-width:40%;
     margin:0 10px 10px 0;
     float:left;
     clear:left;
@@ -622,9 +622,6 @@ a img, a span{
 }
 #pin_holder{
     margin:5px 40px 25px;
-}
-#pin_holder article img{
-    width:20%;
 }
 #search_top .inner{
     padding:0;

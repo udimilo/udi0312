@@ -47,7 +47,7 @@ def index():
 
     current_user = cacher.get('auth_user', auth.user.id)
 
-    response.title = 'pinformation :: {0}'.replace('{0}', current_user['full_name'])
+    response.title = 'Pinformation :: {0}'.replace('{0}', current_user['full_name'])
 
     boards = cacher.get_multi('board', current_user['boards']).values()
 
@@ -75,7 +75,7 @@ def people():
 
     id = long(request.args[0])
     page_user = cacher.get('auth_user', id) or redirect(URL('index'))
-    response.title = 'pinformation :: {0}'.replace('{0}', page_user['full_name'])
+    response.title = 'Pinformation :: {0}'.replace('{0}', page_user['full_name'])
     api_url = URL('api', 'people', args=[page_user['id'], 'pins'])
 
     action = None
@@ -114,7 +114,7 @@ def boards():
 
     id = long(request.args(0))
     current_board = cacher.get('board', id) or redirect(URL('index'))
-    response.title = 'pinformation :: {0}'.replace('{0}', current_board['name'])
+    response.title = 'Pinformation :: {0}'.replace('{0}', current_board['name'])
     api_url = URL('api', 'boards', args=[current_board['id'], 'pins'])
 
     top_pins = current_board['pins'][:page_size]
@@ -160,6 +160,7 @@ def pins():
     comments = cacher.get_multi('comment', pin['comments']).values()
     comments = sorted(comments, key=lambda c: c['created_on'])
 
+    response.title = 'Pinformation :: {0}'.replace('{0}', pin['article_title'])
     return dict(user=user, pin=pin, article=article, comments=comments, board=board, categories=get_all_categories())
 
 def welcome():

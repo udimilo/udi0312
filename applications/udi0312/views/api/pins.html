@@ -7,6 +7,7 @@
             <span>{{=pin['article_domain']}}</span>
         </div>
         <h2>{{=myXML(pin['article_title'])}}</h2>
+        <a href="{{=URL('default', 'pins', args=[pin['id']])}}"></a>
         <article>{{=myXML(pin['article_excerpt'])}}</article>
     </div>
     <div class="footer">

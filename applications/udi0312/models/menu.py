@@ -5,7 +5,7 @@
 ## Customize your APP title, subtitle and menus here
 #########################################################################
 
-response.title = 'pinformation :: Curate The Web'
+response.title = 'Pinformation :: Curate The Web'
 
 ## read more at http://dev.w3.org/html5/markup/meta.name.html
 response.meta.author = 'Udi Milo'
