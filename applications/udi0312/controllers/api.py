@@ -291,5 +291,7 @@ def add_article():
         )
     
     pin = logic.add_pin(article, board)
+    if request.vars.linkedin and request.env.http_host != '127.0.0.1:8080':
+        logic.share_on_linkedin(session.linkedin, pin)
 
     return 'Success'
