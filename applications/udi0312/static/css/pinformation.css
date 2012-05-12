@@ -365,7 +365,13 @@ a img, a span{
 #add_modal .inner{
     min-height:70px;
 }
-#add_modal input{
+#add_modal .share{
+    margin-top:7px;
+}
+#add_modal .share input{
+    margin-right:10px;
+}
+#add_modal input[type="text"]{
     width:100%;
     padding:5px;
     font-size:14px;

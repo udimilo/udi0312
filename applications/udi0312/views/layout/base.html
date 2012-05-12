@@ -1,5 +1,5 @@
 {{from helper import *}}
-{{static_version=10}}
+{{static_version=11}}
 <html lang="en">
 <head>
     <title>{{=response.title or request.application}}</title>
@@ -109,6 +109,7 @@ mixpanel.init("bf24ab1dfdd848808bfebb3755192ff0");</script><!-- end Mixpanel -->
             <div id="add_article_wrapper" class="rounded shadow">
                 <form id="add_article_form">
                     <div><input type="text" name="url" class="wtr rounded" wtr="Article URL"></div>
+                    <div class="share"><input type="checkbox" name="linkedin" checked="true">Share on LinkedIn</div>
                     <div class="clearfix">
                         <select name="board">
                             {{if 'boards' in globals():}}

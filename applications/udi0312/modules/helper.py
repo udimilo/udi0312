@@ -5,7 +5,7 @@ def myXML(text):
                         'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
                         'ol', 'ul', 'p', 'cite', 'code', 'pre',
                         'img/','object','embed','div','em', 'strong',
-                        'span', 'center', 'blockquote', 'iframe'],
+                        'span', 'center', 'blockquote', 'iframe', 'figure', 'figcaption'],
         allowed_attributes={'a':['href', 'title'],
                             'img':['src', 'alt'],
                             'iframe': ['src', 'width', 'height'],
