@@ -196,22 +196,47 @@ def send_linkedin_invites():
     return result
 
 def add_comment():
-    pin = db.pin(long(request.vars.pin_id))
-    user = cacher.get('auth_user', auth.user.id)
+    if len(request.vars.comment) > 0 and re.match('(^[\w\s.-]+$)', request.vars.comment):
+        pin = db.pin(long(request.vars.pin_id))
+        user = cacher.get('auth_user', auth.user.id)
 
-    if pin:
-        comment = db.comment.insert(
-            user=user['id'],
-            user_name=user['full_name'],
-            user_picture_url=user['picture_url'],
-            pin=pin['id'],
-            content=request.vars.comment
-        )
-        pin.comments.append(comment.id)
-        pin.update_record()
-        cacher.delete(pin.id)
+        if pin:
+            comment = db.comment.insert(
+                user=user['id'],
+                user_name=user['full_name'],
+                user_picture_url=user['picture_url'],
+                pin=pin['id'],
+                content=request.vars.comment
+            )
+            pin.comments.append(comment.id)
+            pin.update_record()
+            cacher.delete(pin.id)
 
-    return 'Success'
+            try:
+                users = [pin['user']]
+                comments = cacher.get_multi('auth_user', pin['comments']).values()
+                for c in comments:
+                    users.append(c['user'])
+
+                users = cacher.get_multi('auth_user', users).values()
+                if len(users) > 0:
+                    usernames = []
+                    for u in users:
+                        if not u['id'] == user['id']:
+                            usernames.append(u['username'])
+
+                    subject = '{0} commented on "{1}"'.replace('{0}',user['full_name']).replace('{1}', pin['article_title'])
+                    msg_template = '{0}\n\n ---------------------------------------------------------------\nwww.pinformation.co is an innovative way to curate and share information on the web.\nWe help you become better at what you do.'
+                    msg = '{0} commented on "{1}"\n\nClick the link to continue the conversation: http://www.pinformation.co{2}'
+                    msg = msg.replace('{0}', user['full_name']).replace('{1}', pin['article_title']).replace('{2}', URL('default', 'pins', args=[pin['id']]))
+                    msg = msg_template.replace('{0}', msg)
+                    result = session.linkedin.send_message(subject, msg, usernames, False)
+            except:
+                pass
+
+        return 'Success'
+    else:
+        return 'please use only alpha numeric characters'
 
 def add_repin():
     pin = cacher.get('pin', long(request.vars.id))

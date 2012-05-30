@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="db34da45-26d4-4f67-99f2-74af7bd3dfa1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/applications/udi0312/modules/helper.py" afterPath="$PROJECT_DIR$/applications/udi0312/modules/helper.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/applications/udi0312/static/css/pinformation.css" afterPath="$PROJECT_DIR$/applications/udi0312/static/css/pinformation.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/applications/udi0312/controllers/api.py" afterPath="$PROJECT_DIR$/applications/udi0312/controllers/api.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/applications/udi0312/views/layout/base.html" afterPath="$PROJECT_DIR$/applications/udi0312/views/layout/base.html" />
     </list>
     <ignored path="udi0312.iws" />
@@ -31,31 +30,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="base.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/applications/udi0312/views/layout/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="19" selection-start="44" selection-end="44" vertical-scroll-proportion="0.022488756">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pinformation.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/applications/udi0312/static/css/pinformation.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="371" column="19" selection-start="8425" selection-end="8425" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="api.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/applications/udi0312/controllers/api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="296" column="0" selection-start="9942" selection-end="9942" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#15#54#0" expanded="true" />
-              </folding>
+            <state line="220" column="67" selection-start="7282" selection-end="7282" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/applications/udi0312/views/layout/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="0" selection-start="63" selection-end="63" vertical-scroll-proportion="0.06746627">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="linkedin.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/applications/udi0312/modules/linkedin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="372" column="0" selection-start="15064" selection-end="15064" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="storage.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gluon/storage.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="57" column="0" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -65,17 +71,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="7" column="87" selection-start="416" selection-end="416" vertical-scroll-proportion="0.0">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logic.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/applications/udi0312/modules/logic.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="0" selection-start="3860" selection-end="3860" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -92,7 +87,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/applications/udi0312/views/invites/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="163" selection-start="1315" selection-end="1315" vertical-scroll-proportion="-12.5">
+            <state line="20" column="163" selection-start="1315" selection-end="1315" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,7 +96,7 @@
       <file leaf-file-name="linkedin.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/applications/udi0312/views/invites/linkedin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="9.5">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -119,7 +114,7 @@
       <file leaf-file-name="pins.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/applications/udi0312/views/api/pins.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="8" selection-start="449" selection-end="449" vertical-scroll-proportion="-6.25">
+            <state line="10" column="8" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -149,8 +144,8 @@
         <option value="$PROJECT_DIR$/applications/udi0312/static/js/pinfo.invites.js" />
         <option value="$PROJECT_DIR$/applications/udi0312/modules/logic.py" />
         <option value="$PROJECT_DIR$/applications/udi0312/modules/helper.py" />
-        <option value="$PROJECT_DIR$/applications/udi0312/controllers/api.py" />
         <option value="$PROJECT_DIR$/applications/udi0312/static/css/pinformation.css" />
+        <option value="$PROJECT_DIR$/applications/udi0312/controllers/api.py" />
         <option value="$PROJECT_DIR$/applications/udi0312/views/layout/base.html" />
       </list>
     </option>
@@ -254,7 +249,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -276,11 +271,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -305,16 +300,16 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="146" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="938" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="940" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="938" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="144" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="141" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -394,7 +389,7 @@
     </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
       <JSDebuggerConfigurationSettings>
-        <option name="engineId" />
+        <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
       <method />
@@ -480,7 +475,11 @@
       <created>1336762103129</created>
       <updated>1336762103129</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added &quot;share on linkedin&quot; checkbox on add article modal">
+      <created>1336840716821</created>
+      <updated>1336840716821</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -504,10 +503,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="874" extended-state="6" />
+    <frame x="0" y="22" width="1440" height="874" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -522,6 +520,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -564,7 +563,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="added post to linkedin after adding an article" />
+    <option name="LAST_COMMIT_MESSAGE" value="added &quot;share on linkedin&quot; checkbox on add article modal" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -586,130 +585,92 @@
     <MESSAGE value="change sender email to info@pinformation.co" />
     <MESSAGE value="fixed invite linkedin list bug" />
     <MESSAGE value="added post to linkedin after adding an article" />
+    <MESSAGE value="added &quot;share on linkedin&quot; checkbox on add article modal" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/applications/udi0312/controllers/api.py</url>
-          <line>270</line>
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/applications/udi0312/controllers/default.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="76" selection-start="5595" selection-end="5595" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/udi0312/views/api/pin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="18" selection-start="448" selection-end="448" vertical-scroll-proportion="-4.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/udi0312/views/api/pins.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="8" selection-start="449" selection-end="449" vertical-scroll-proportion="-6.25">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/udi0312/models/menu.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="17" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/udi0312/models/db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="25" selection-start="3165" selection-end="3165" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/udi0312/static/js/pinfo.search.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/applications/udi0312/static/js/pinfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="275" column="0" selection-start="8600" selection-end="8600" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="275" column="0" selection-start="8600" selection-end="8600" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/applications/udi0312/static/js/pinfo.invites.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="25" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/udi0312/views/invites/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="163" selection-start="1315" selection-end="1315" vertical-scroll-proportion="-12.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/udi0312/views/invites/linkedin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="9.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/udi0312/modules/logic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="0" selection-start="3860" selection-end="3860" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
+        <state line="1" column="25" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/applications/udi0312/static/js/list.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="463" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/applications/udi0312/modules/helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="87" selection-start="416" selection-end="416" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="463" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/applications/udi0312/static/css/pinformation.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="371" column="19" selection-start="8425" selection-end="8425" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="371" column="19" selection-start="8425" selection-end="8425" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/udi0312/modules/logic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="132" column="0" selection-start="3860" selection-end="3860" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gluon/globals.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="172" column="0" selection-start="5532" selection-end="5532" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/udi0312/modules/linkedin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="372" column="0" selection-start="15064" selection-end="15064" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gluon/storage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="0" selection-start="1216" selection-end="1216" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/udi0312/modules/helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="87" selection-start="416" selection-end="416" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/udi0312/models/db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="25" selection-start="3165" selection-end="3165" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/udi0312/views/invites/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="163" selection-start="1315" selection-end="1315" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/udi0312/views/invites/linkedin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/udi0312/models/menu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="17" selection-start="839" selection-end="839" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/applications/udi0312/views/api/pins.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="8" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/applications/udi0312/controllers/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="296" column="0" selection-start="9942" selection-end="9942" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#15#54#0" expanded="true" />
-          </folding>
+        <state line="220" column="67" selection-start="7282" selection-end="7282" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/applications/udi0312/views/layout/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="19" selection-start="44" selection-end="44" vertical-scroll-proportion="0.022488756">
+        <state line="3" column="0" selection-start="63" selection-end="63" vertical-scroll-proportion="0.06746627">
           <folding />
         </state>
       </provider>
